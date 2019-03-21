@@ -65,6 +65,7 @@ public class UnitConverter {
 
     // initialize hashmap
     private void initializeUnits(){     // the smaller the convertion factor the bigger the unit
+        // the double is used to convert the value to meters first so that you can then convert it to any desired units.
         metricUnits.put("milimeters", 1000.0);
         metricUnits.put("centimeters", 100.0);
         metricUnits.put("meters", 1.0);
@@ -79,7 +80,6 @@ public class UnitConverter {
     public double getAnswer() {
         return answer;
     }
-
 
     public String getStartUnits() {
         return startUnits;
