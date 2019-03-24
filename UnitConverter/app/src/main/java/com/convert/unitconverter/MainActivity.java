@@ -8,6 +8,7 @@ for the units you add match in both files.
 
 package com.convert.unitconverter;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +17,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText txtIn;     // user enters text here
     private TextView txtOut;    // displays result here
+    private Button distancesBtn, weightsBtn, volumesBtn;
     private UnitConverter u = new UnitConverter();      // does processing to get result
     private Spinner unitsIn, unitsOut;      // stors different options for the user to choose
     private int positionOfSecondItem = 0, positionOfFirstItem = 0;      // saves postion of item selected to pass into Unit converter
@@ -35,21 +38,43 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final Context context = getBaseContext();
+
+        u.setUnitType("distances");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initializeIds(); // link variables with widgets
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.units, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        unitsIn.setAdapter(adapter);
-        unitsIn.setOnItemSelectedListener(this);
+        configureSpinners(ArrayAdapter.createFromResource(this, R.array.distances, android.R.layout.simple_spinner_item));
+        
+        weightsBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.weights, android.R.layout.simple_spinner_item);
+                configureSpinners(adapter);
+                u.setUnitType("weights");
+            }
+        });
+        
+        distancesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.distances, android.R.layout.simple_spinner_item);
+                configureSpinners(adapter);
+                u.setUnitType("distances");
+            }
+        });
 
-        unitsIn.setOnItemSelectedListener(this);
-
-        unitsOut.setAdapter(adapter);
-        unitsOut.setOnItemSelectedListener(this);
+        volumesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.volumes, android.R.layout.simple_spinner_item);
+                configureSpinners(adapter);
+                u.setUnitType("volumes");
+            }
+        });
 
         txtIn.addTextChangedListener(new TextWatcher() { // updates output as soon as user enters data
             @Override
@@ -65,12 +90,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
     }
+    
+    private void configureSpinners(ArrayAdapter<CharSequence> adapter){
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        unitsIn.setAdapter(adapter);
+        unitsIn.setOnItemSelectedListener(this);
+
+        unitsIn.setOnItemSelectedListener(this);
+
+        unitsOut.setAdapter(adapter);
+        unitsOut.setOnItemSelectedListener(this);
+    }
 
     private void initializeIds(){
         unitsIn = findViewById(R.id.spinnerIn);
         unitsOut = findViewById(R.id.spinnerOut);
         txtIn = (EditText) findViewById(R.id.txtIn);
         txtOut = (TextView) findViewById(R.id.txtOut);
+        distancesBtn = findViewById(R.id.distancesBtn);
+        weightsBtn = findViewById(R.id.weightsBtn);
+        volumesBtn = findViewById(R.id.volumesBtn);
     }
 
     @Override

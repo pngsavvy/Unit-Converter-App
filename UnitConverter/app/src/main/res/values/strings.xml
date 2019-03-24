@@ -1,14 +1,37 @@
 <resources>
     <string name="app_name">Unit Converter</string>
-    <string-array name="units">
+    <string-array name="distances">
         <item>inches</item>
         <item>feet</item>
+        <item>yard</item>
         <item>miles</item>
         <item>milimeters</item>
         <item>centimeters</item>
         <item>meters</item>
         <item>kilometers</item>
+    </string-array>
 
+    <string-array name="weights">
+        <item>ounce</item>
+        <item>pound</item>
+        <item>ton</item>
+        <item>microgram</item>
+        <item>milligram</item>
+        <item>gram</item>
+        <item>centigram</item>
+        <item>decigram</item>
+        <item>hectogram</item>
+        <item>kilogram</item>
+    </string-array>
 
+    <string-array name="volumes">
+        <item>tsp</item>
+        <item>tbsp</item>
+        <item>cup</item>
+        <item>pint</item>
+        <item>quart</item>
+        <item>gallon</item>
+        <item>milliliter</item>
+        <item>liter</item>
     </string-array>
 </resources>

@@ -7,13 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="or"
+        app:layout_constraintBaseline_toBaselineOf="@+id/weightsBtn"
+        app:layout_constraintEnd_toStartOf="@+id/weightsBtn"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toEndOf="@+id/distancesBtn" />
+
     <EditText
         android:id="@+id/txtIn"
-        android:layout_width="183dp"
+        android:layout_width="230dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
@@ -21,60 +35,61 @@
         android:hint="enter number"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerIn"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
-
-    <Spinner
-        android:id="@+id/spinnerIn"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="@+id/txtIn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtIn"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Spinner
-        android:id="@+id/spinnerOut"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtOut"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerIn"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toEndOf="@+id/txtOut"
-        app:layout_constraintTop_toTopOf="@+id/txtOut"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.495" />
 
     <TextView
         android:id="@+id/txtOut"
-        android:layout_width="186dp"
-        android:layout_height="36dp"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtIn"
         app:layout_constraintTop_toBottomOf="@+id/txtIn"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintVertical_bias="0.061" />
+
+    <Spinner
+        android:id="@+id/spinnerIn"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toEndOf="@+id/txtIn"
+        app:layout_constraintTop_toTopOf="@+id/txtIn" />
+
+    <Spinner
+        android:id="@+id/spinnerOut"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerIn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/spinnerIn"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerIn"
+        app:layout_constraintVertical_bias="0.061" />
 
     <Button
         android:id="@+id/distancesBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Distances"
         app:layout_constraintBottom_toTopOf="@+id/txtIn"
-        app:layout_constraintEnd_toEndOf="@+id/txtIn"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtIn"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916" />
 
     <Button
         android:id="@+id/weightsBtn"
@@ -87,80 +102,63 @@
         android:text="Weights"
         app:layout_constraintBaseline_toBaselineOf="@+id/distancesBtn"
         app:layout_constraintEnd_toStartOf="@+id/volumesBtn"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toEndOf="@+id/distancesBtn" />
 
     <Button
         android:id="@+id/volumesBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:text="Volumes"
         app:layout_constraintBaseline_toBaselineOf="@+id/weightsBtn"
         app:layout_constraintEnd_toEndOf="@+id/spinnerIn" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="or"
-        app:layout_constraintBottom_toBottomOf="@+id/weightsBtn"
-        app:layout_constraintEnd_toStartOf="@+id/weightsBtn"
-        app:layout_constraintStart_toEndOf="@+id/distancesBtn"
-        app:layout_constraintTop_toTopOf="@+id/weightsBtn" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="or"
-        app:layout_constraintBottom_toBottomOf="@+id/volumesBtn"
+        app:layout_constraintBaseline_toBaselineOf="@+id/volumesBtn"
         app:layout_constraintEnd_toStartOf="@+id/volumesBtn"
-        app:layout_constraintStart_toEndOf="@+id/weightsBtn"
-        app:layout_constraintTop_toTopOf="@+id/volumesBtn"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toEndOf="@+id/weightsBtn" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginRight="300dp"
+        android:layout_marginTop="8dp"
         android:text="Convert..."
         app:layout_constraintBottom_toTopOf="@+id/distancesBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/distancesBtn"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="@+id/distancesBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="0.901" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="to"
         app:layout_constraintBottom_toTopOf="@+id/spinnerOut"
         app:layout_constraintEnd_toEndOf="@+id/spinnerIn"
-        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/spinnerIn"
         app:layout_constraintTop_toBottomOf="@+id/spinnerIn"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
+        app:layout_constraintGuide_begin="365dp" />
 
 </android.support.constraint.ConstraintLayout>
