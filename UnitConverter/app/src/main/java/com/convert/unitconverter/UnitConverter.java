@@ -69,7 +69,7 @@ public class UnitConverter {
         imperialUnits.put("miles",1.0/5280.0);
 
         // the double is used to convert the value to meters first so that you can then convert it to any desired units.
-        metricUnits.put("milimeters", 1000.0);
+        metricUnits.put("millimeters", 1000.0);
         metricUnits.put("centimeters", 100.0);
         metricUnits.put("meters", 1.0);
         metricUnits.put("kilometers", 0.001);

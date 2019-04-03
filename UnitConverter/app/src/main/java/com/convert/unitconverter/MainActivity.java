@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private UnitConverter u = new UnitConverter();      // does processing to get result
     private Spinner unitsIn, unitsOut;      // stors different options for the user to choose
     private int positionOfSecondItem = 0, positionOfFirstItem = 0;      // saves postion of item selected to pass into Unit converter
-    private DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###.######");     // formats output
+    private DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###.##########");     // formats output
     private String lastInput = "";    // variable that helps with displaying the correct toast message at the correct time
 
     @Override
